@@ -1,8 +1,12 @@
+import os
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
-from dotenv import load_dotenv 
+
 import streamlit as st
 
-load_dotenv()
+HUGGINGFACEHUB_API_TOKEN = "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"
+
+# set the token in the environment so the HuggingFace client can pick it up
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGINGFACEHUB_API_TOKEN
 
 llm = HuggingFaceEndpoint(
     repo_id="deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
